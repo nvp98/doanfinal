@@ -35,7 +35,7 @@ const s = new WebSocket.Server({ server });
 //when browser sends get request, send html file to browser
 // viewed at http://localhost:30000
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "/index.html"));
+  res.sendFile(path.join(__dirname + "/index1.html"));
   
 });
 let dbo;
