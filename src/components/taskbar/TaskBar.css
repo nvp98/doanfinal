@@ -1,0 +1,37 @@
+.task-bar {
+}
+.task-bar__header {
+  background-image: linear-gradient(rgb(224, 224, 224), rgb(165, 165, 165));
+}
+.task-bar .task-bar__header__logo {
+  display: flex;
+  justify-content: center;
+}
+.task-bar .task-bar__header__logo img {
+  width: 120px;
+  height: 150px;
+}
+.task-bar .task-bar__header__title {
+  display: flex;
+  justify-content: center;
+}
+
+.task-bar .task-bar__select ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+}
+.task-bar .task-bar__select ul li {
+  padding: 10px;
+  background-image: linear-gradient(rgb(224, 224, 224), rgb(165, 165, 165));
+  margin: 10px 0;
+  cursor: pointer;
+  box-shadow: 0 5px 10px black;
+}
+.task-bar .task-bar__select ul li img {
+  width: 20px;
+  height: 20xp;
+  margin-right: 20px;
+}

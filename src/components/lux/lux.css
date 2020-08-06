@@ -1,0 +1,16 @@
+.lux {
+  height: 300px;
+  width: 240px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+.lux img {
+  width: 80%;
+  height: 180px;
+  margin: 10px 0;
+}
+.lux h2 {
+  text-align: center;
+  color: sienna;
+}

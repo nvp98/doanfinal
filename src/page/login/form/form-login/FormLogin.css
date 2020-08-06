@@ -1,0 +1,33 @@
+.form-login__input {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 0 20px 0;
+  animation: showform linear 0.5s;
+  transform-origin: 50% 50%;
+}
+.form-login__input label {
+  color: black;
+  text-align: left;
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-end;
+  font-style: italic;
+  font-weight: bold;
+}
+.form-login__input label img {
+  width: 25px;
+  height: 25px;
+}
+
+.form-login__input input {
+  padding: 15px 15px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid rgb(98, 147, 21);
+  font-size: 18px;
+}
+.form-login__input input:focus {
+  border: 1px solid black;
+  box-shadow: 0px 0px 15px yellowgreen;
+}

@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.home .chart {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 45vh;
+  padding: 20px 0;
+}
+.home .chart .chart-control {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border: 1px solid white;
+  padding: 5px 10px;
+}
+.home .chart .chart-tabel {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 5px 10px;
+}
+.home .taskbar {
+  width: 25%;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0, 5px, 10px, rgba(255, 255, 255, 0.9);
+  margin: 0 0 3px 0;
+}

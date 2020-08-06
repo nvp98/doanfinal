@@ -1,0 +1,20 @@
+.chart-temperature {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.chart-temperature img {
+  position: absolute;
+  top: 115px;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+
+  transform: translate(-50%, -50%);
+}
+.chart-temperature p {
+  color: red;
+}
