@@ -37,7 +37,7 @@ const s = new WebSocket.Server({ server });
 app.use(express.static(path.join(__dirname, '../build')));
 // viewed at http://localhost:30000
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, '../build'));
+  res.sendFile(path.join(__dirname, '../build/index.html'));
   
 });
 let dbo;
