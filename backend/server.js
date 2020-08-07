@@ -33,9 +33,11 @@ require("dns").lookup(require("os").hostname(), function (err, add, fam) {
 const WebSocket = require("ws");
 const s = new WebSocket.Server({ server });
 //when browser sends get request, send html file to browser
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '../build')));
 // viewed at http://localhost:30000
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "/index1.html"));
+  res.sendFile(path.join(__dirname, '../build'));
   
 });
 let dbo;
