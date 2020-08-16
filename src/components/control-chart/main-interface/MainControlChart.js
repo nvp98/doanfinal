@@ -143,7 +143,7 @@ export default function ControlChart(props) {
       setdata({ quat: quat1, maybom: maybom1, phunsuong: phunsuong1 });
     }, 1000);
     return () => clearInterval(time);
-  });
+  },[]);
 
   // useEffect(() => {
   //   const time = setInterval(() => {
