@@ -16,7 +16,7 @@ export default class PersonList extends React.Component {
         const anhsang = res.data.as[0];
         this.setState({ anhsang });
       });
-    }, 1000);
+    }, 3000);
   }
   componentWillUnmount() {
     if (this.interval) {

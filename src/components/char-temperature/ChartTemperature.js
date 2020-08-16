@@ -78,17 +78,20 @@ export default class ApexChart extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      axios.get("/doan").then((result) => {
-        this.setState({
-          series: [result.data.nhietdo[0]],
+      axios
+        .get("/doan")
+        .then((result) => {
+          this.setState({
+            series: [result.data.nhietdo[0]],
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
         });
-      });
-    }, 1000);
+    }, 3000);
   }
   componentWillUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
+    clearInterval(this.interval);
   }
   render() {
     return (

@@ -95,6 +95,7 @@ export default class ChartAirHumidity extends Component {
       } else {
         date = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
       }
+      console.log(this.state.series[0]);
       axios.get("/doan").then((result) => {
         this.setState({
           s: [date, ...this.state.s.slice(0, 10)],

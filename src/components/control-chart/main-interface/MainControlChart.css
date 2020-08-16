@@ -1,0 +1,264 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.control .control-chart .btn-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  font-size: 18px;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+
+  cursor: pointer;
+}
+.control .control-chart .btn-menu:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+}
+.control .control-chart .btn-menu img {
+  width: 40px;
+  height: 40px;
+}
+.control-chart {
+  width: 90%;
+  height: 32vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 10px;
+}
+.control-chart .control-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.control-chart .control-content .control-content__service {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.control-chart .control-content .control-content__infor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 55%;
+  border-radius: 10px;
+  height: 200px;
+}
+.control-chart .control-content .control-content__infor table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.control-chart .control-content .control-content__infor table,
+td,
+th {
+  border: 1px solid white;
+  padding: 8px;
+}
+.control-chart h2 {
+  text-decoration: underline;
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+}
+.control-chart .control-content .control-content__service .control-chart__pan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__pan
+  .icon-quat
+  img {
+  width: 50px;
+  height: 50px;
+  animation: quatxoay 2s linear 0s infinite;
+  margin-right: 15px;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__quater {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__quater
+  .icon-quater {
+  position: relative;
+}
+.control-chart
+  .control-content
+  .control-chart__quater
+  .icon-quater
+  .icon-quater__vanh {
+  width: 80px;
+  height: 50px;
+  /* animation: quatxoay 2s linear 0s infinite; */
+}
+
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__quater
+  .icon-quater
+  .icon-quater__tam {
+  width: 80px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  animation: quatxoay 2s linear 0s infinite;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__sprinkler {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__sprinkler
+  .icon-sprinkler {
+  position: relative;
+}
+.control-chart
+  .control-content
+  .control-chart__sprinkler
+  .icon-sprinkler
+  .icon-sprinkler__vanh {
+  width: 70px;
+  height: 50px;
+}
+
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__sprinkler
+  .icon-sprinkler
+  .icon-sprinkler__tam {
+  width: 70px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  animation: phunxoay 2s linear 0s infinite;
+}
+.control-chart .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin: 10px 0;
+}
+.control-chart .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.control-chart .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border: 1px solid black;
+  transition: 0.4s;
+  border-radius: 28px;
+}
+.control-chart .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.control-chart input:checked + .slider {
+  background-color: black;
+}
+.control-chart input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+.control-chart input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: white;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__pan
+  .icon-quat
+  .non-animation {
+  animation: none;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__pan
+  .icon-quat
+  .non-animation {
+  animation: none;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__sprinkler
+  .icon-sprinkler
+  .non-animation {
+  animation: none;
+}
+.control-chart
+  .control-content
+  .control-content__service
+  .control-chart__quater
+  .icon-quater
+  .non-animation {
+  animation: none;
+}
+@keyframes quatxoay {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes phunxoay {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

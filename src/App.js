@@ -22,7 +22,7 @@ export default function App() {
           <Route exact path="/">
             <Login clickLogin={clickLogin} />
           </Route>
-          <Route exact path="/control">
+          <Route exact path="/dashboard">
             <Home />
           </Route>
         </Switch>

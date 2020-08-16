@@ -1,0 +1,114 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  animation: show-item 0.2s linear;
+  transform-origin: 50% 50%;
+}
+.timer .set-timer {
+  display: flex;
+  justify-content: flex-start;
+}
+.timer h2 {
+  margin: 0;
+  text-align: center;
+}
+.timer .btn-home {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+  outline: none;
+  cursor: pointer;
+}
+.timer .btn-home:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+}
+.timer .btn-home img {
+  width: 40px;
+  height: 40px;
+}
+.timer .btn-back {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+  outline: none;
+  cursor: pointer;
+}
+.timer .btn-back:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+}
+.timer .btn-back img {
+  width: 30px;
+  height: 30px;
+}
+
+.timer .btn-tab {
+  position: absolute;
+  left: 70%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+  outline: none;
+  cursor: pointer;
+}
+.timer .btn-tab:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 1);
+}
+.timer .btn-tab img {
+  width: 30px;
+  height: 30px;
+}
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.clock .show-time {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border-radius: 28px;
+  border: 1px solid black;
+}
+
+.clock .show-time p {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+@keyframes show-item {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

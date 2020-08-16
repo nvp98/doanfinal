@@ -1,153 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ControlChart.css";
-import axios from "axios";
-import ctcQuatChay from "../../images/ctc-quay-chay.png";
-import ctcBomVanh from "../../images/ctc-bom-chay-vanh.png";
-import ctcBomtam from "../../images/ctc-bom-chay-tam.png";
-import ctcPhuntam from "../../images/ctc-phun-tam.png";
-import ctcPhunvanh from "../../images/ctc-phun-vanh.png";
-const instance = axios.create();
+import MainControlChart from "./main-interface/MainControlChart";
+import Menu from "./menu/Menu";
+import imgLeft from "../../images/undo.svg";
+import imgMenu from "../../images/menu.svg";
+import imgTab from "../../images/tab.svg";
+import imgHome from "../../images/houses.svg";
 export default function ControlChart() {
-  const [data, setData] = useState({
-    quat: false,
-    maybom: false,
-    phunsuong: false,
-  });
-  const [sendDatas, setSendDatas] = useState({
-    quat: "off",
-    maybom: "off",
-    phunsuong: "off",
-    chedo: "normal",
-    id: "2",
-  });
-  const [infor, setInfor] = useState({});
-  const sendData = (e) => {
-    console.log(e.target.checked);
-    if (e.target.checked) {
-      setSendDatas({ ...sendDatas, [e.target.name]: "on" });
-    } else {
-      setSendDatas({ ...sendDatas, [e.target.name]: "off" });
-    }
-    setData({ ...data, [e.target.name]: e.target.checked });
-
-    console.log(infor);
+  let [isClickMenu, setIsClickMenu] = useState(false);
+  let [data, setData] = useState("");
+  let [chooseOption, setChooseOption] = useState("");
+  const chooseMenu = (data) => {
+    //
+    console.log("thoigian", data);
+    setData(data);
   };
-  useEffect(() => {
-    instance
-      .post("/control", sendDatas)
-      .then((res) => {
-        console.log(res);
-        console.log(res.sendData);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  }, [sendDatas]);
-  useEffect(() => {
-    const time = setInterval(() => {
-      axios.get("/doan").then((result) => {
-        setInfor(result.data);
-      });
-    }, 1000);
-  }, []);
+  const home = () => {
+    setIsClickMenu(!isClickMenu);
+    setChooseOption("back");
+  };
+  const back = (data) => {
+    setChooseOption(data);
+    console.log("option", data);
+  };
   return (
-    <div className="control">
-      <div className="control-chart">
-        <h2>CONTROL</h2>
+    <div className="contro-chart-main">
+      {isClickMenu ? (
+        <Menu chooseMenu={chooseMenu} back={back} chooseOption={chooseOption} />
+      ) : (
+        <MainControlChart data={data} />
+      )}
+      <div className="btn-group">
+        <button className="btn-back btn-control">
+          <img src={imgLeft} onClick={() => back("back")} />
+        </button>
+        <button className="btn-home btn-control" onClick={home}>
+          <img src={isClickMenu ? imgHome : imgMenu} />
+        </button>
 
-        <div className="control-content">
-          <div className="control-content__service">
-            {" "}
-            <div className="control-chart__pan">
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  name="quat"
-                  checked={data.quat}
-                  onChange={sendData}
-                />
-                <span className="slider"></span>
-              </label>
-              <div className="icon-quat">
-                <img
-                  src={ctcQuatChay}
-                  className={!data.quat && "non-animation"}
-                  alt="img"
-                />
-              </div>
-            </div>
-            <div className="control-chart__quater">
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  name="maybom"
-                  checked={data.maybom}
-                  onChange={sendData}
-                />
-                <span className="slider"></span>
-              </label>
-              <div className="icon-quater">
-                <img className="icon-quater__vanh" src={ctcBomVanh} alt="img" />
-                <img
-                  className={`icon-quater__tam ${
-                    !data.maybom && "non-animation"
-                  }`}
-                  src={ctcBomtam}
-                  alt="img"
-                />
-              </div>
-            </div>
-            <div className="control-chart__sprinkler">
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  name="phunsuong"
-                  checked={data.phunsuong}
-                  onChange={sendData}
-                />
-                <span className="slider"></span>
-              </label>
-              <div className="icon-sprinkler">
-                <img
-                  className="icon-sprinkler__vanh"
-                  src={ctcPhunvanh}
-                  alt="img"
-                />
-                <img
-                  className={`icon-sprinkler__tam ${
-                    !data.phunsuong && "non-animation"
-                  }`}
-                  src={ctcPhuntam}
-                  alt="img"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="control-content__infor">
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>Value</th>
-              </tr>
-              <tr>
-                <td>temperature</td>
-                <td>{`${infor.nhietdo}°C`}</td>
-              </tr>
-              <tr>
-                <td>Soil moisture</td>
-                <td>{`${infor.damkk}%`}</td>
-              </tr>
-              <tr>
-                <td>Air humidity</td>
-                <td>{`${infor.doam}%`}</td>
-              </tr>
-              <tr>
-                <td>Sun</td>
-                <td>{`${infor.as}%`}</td>
-              </tr>
-            </table>
-          </div>
-        </div>
+        <button className="btn-tab btn-control">
+          <img src={imgTab} />
+        </button>
       </div>
     </div>
   );

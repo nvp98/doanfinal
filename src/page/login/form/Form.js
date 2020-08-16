@@ -69,7 +69,7 @@ export default function Form(props) {
     }
     if (active) {
       // props.confirmLogin(true);
-      history.push("/control");
+      history.push("/dashboard");
       setStateLogin(false);
     } else {
       setStateLogin(true);

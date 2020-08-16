@@ -2,7 +2,6 @@
   "name": "cline",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/build", 
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -19,24 +18,21 @@
     "react": "^16.13.1",
     "react-apexcharts": "^1.3.7",
     "react-dom": "^16.13.1",
+    "react-images-uploading": "^2.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^1.1.1",
     "react-slick": "^0.27.1",
     "ws": "^7.3.1"
   },
-  "proxy": "http://localhost:5001",
+  "proxy": "http://45.119.83.67:3000/",
   "secure": false,
   "scripts": {
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-	"start": "node backend/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "engines": {
-    "node": "12.18.3"
   }
 }
