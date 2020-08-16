@@ -6,7 +6,7 @@ import ctcBomVanh from "../../../images/ctc-bom-chay-vanh.png";
 import ctcBomtam from "../../../images/ctc-bom-chay-tam.png";
 import ctcPhuntam from "../../../images/ctc-phun-tam.png";
 import ctcPhunvanh from "../../../images/ctc-phun-vanh.png";
-
+let counter = 0;
 export default function ControlChart(props) {
   const [data, setdata] = useState({
     quat: false,
@@ -85,21 +85,32 @@ export default function ControlChart(props) {
   useEffect(() => {
     var date = "";
     //let quat =false;
+	
     var quat1, maybom1, phunsuong1;
     const time = setInterval(() => {
       var d = new Date();
       if (d.getMinutes() < 10) {
-        date = `${d.getHours()}:0${d.getMinutes()}:${d.getSeconds()}`;
+        date = `${d.getHours()}:0${d.getMinutes()}`;
       } else {
-        date = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+        date = `${d.getHours()}:${d.getMinutes()}`;
       }
+	  
 
-      if (date === `${props.data}:0`) {
-        setdata({ ...data, maybom: true });
-      } else if (date === `${props.data}:10`) {
-        setdata({ ...data, maybom: false });
-      }
-
+	  
+		console.log("hẹn giờ 1",date);
+		console.log("hẹn giờ 2",props.data);
+      if (date === `${props.data}`) {
+		  counter = counter + 1;
+		  if(counter === 1){
+			  setSendDatas({ ...sendDatas, quat: "on" });
+		  }
+		  else if(counter ===10){ setSendDatas({ ...sendDatas, quat: "off" })}
+		}
+	  else{
+		  counter=0;
+	  }
+		  
+		console.log(counter);
       axios.get("/doan").then((result) => {
         setInfor(result.data);
         // console.log(result.data);
@@ -132,7 +143,7 @@ export default function ControlChart(props) {
       setdata({ quat: quat1, maybom: maybom1, phunsuong: phunsuong1 });
     }, 1000);
     return () => clearInterval(time);
-  }, []);
+  });
 
   // useEffect(() => {
   //   const time = setInterval(() => {
