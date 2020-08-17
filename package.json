@@ -28,7 +28,7 @@
     "react-slick": "^0.27.1",
     "ws": "^7.3.1"
   },
-  "proxy": "http://45.119.83.67:3000/",
+  
   "secure": false,
   "scripts": {
     "build": "react-scripts build",
