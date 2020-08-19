@@ -25,7 +25,7 @@ export default class ChartAirHumidity extends Component {
         },
         stroke: {
           width: [5, 7, 5],
-          curve: "straight",
+          curve: "straight ",
           dashArray: [0, 8, 5],
         },
         title: {
@@ -131,7 +131,7 @@ export default class ChartAirHumidity extends Component {
           series={this.state.series}
           type="area"
           height={300}
-          width={610}
+          width={510}
         />
       </div>
     );

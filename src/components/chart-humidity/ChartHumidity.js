@@ -10,7 +10,7 @@ export default class ChartHumidity extends Component {
       s: [],
       series: [
         {
-          data: [],
+          data: [78,78,78,78,78,78,78,78,78,78],
         },
       ],
       options: {
@@ -18,9 +18,14 @@ export default class ChartHumidity extends Component {
           height: 350,
           type: "line",
         },
+        
+        dataLabels: {
+          enabled: true,
+        },
         stroke: {
-          width: 7,
-          curve: "smooth",
+          width: [5, 7, 5],
+          curve: "straight",
+          dashArray: [0, 8, 5],
         },
         xaxis: {
           categories: [],
@@ -40,8 +45,8 @@ export default class ChartHumidity extends Component {
             gradientToColors: ["#FDD835"],
             shadeIntensity: 1,
             type: "horizontal",
-            opacityFrom: 1,
-            opacityTo: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
             stops: [0, 100, 100, 100],
           },
         },
@@ -60,6 +65,34 @@ export default class ChartHumidity extends Component {
           title: {
             text: "Air humidity (%)",
           },
+        },
+tooltip: {
+          y: [
+            {
+              title: {
+                formatter: function (val) {
+                  return val + " (mins)";
+                },
+              },
+            },
+            {
+              title: {
+                formatter: function (val) {
+                  return val + " per session";
+                },
+              },
+            },
+            {
+              title: {
+                formatter: function (val) {
+                  return val;
+                },
+              },
+            },
+          ],
+        },
+        grid: {
+          borderColor: "#f1f1f1",
         },
       },
     };
@@ -108,7 +141,7 @@ export default class ChartHumidity extends Component {
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
-            type="line"
+            type="area"
             height={280}
             width={610}
           />

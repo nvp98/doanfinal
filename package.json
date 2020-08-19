@@ -2,10 +2,6 @@
   "name": "cline",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.14.6",
-    "node": "12.18.3"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -28,7 +24,8 @@
     "react-slick": "^0.27.1",
     "ws": "^7.3.1"
   },
-
+  "proxy": "http://45.119.83.67:3000/",
+  "secure": false,
   "scripts": {
     "build": "react-scripts build",
     "test": "react-scripts test",

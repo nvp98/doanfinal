@@ -18,9 +18,14 @@ export default class ChartHumidity extends Component {
           height: 350,
           type: "line",
         },
+        
+        dataLabels: {
+          enabled: true,
+        },
         stroke: {
-          width: 7,
+          width: [5, 7, 5],
           curve: "smooth",
+          dashArray: [0, 8, 5],
         },
         xaxis: {
           categories: [],
@@ -40,8 +45,8 @@ export default class ChartHumidity extends Component {
             gradientToColors: ["#FDD835"],
             shadeIntensity: 1,
             type: "horizontal",
-            opacityFrom: 1,
-            opacityTo: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.5,
             stops: [0, 100, 100, 100],
           },
         },
@@ -58,8 +63,36 @@ export default class ChartHumidity extends Component {
           min: 0,
           max: 100,
           title: {
-            text: "Engagement",
+            text: "Air humidity (%)",
           },
+        },
+tooltip: {
+          y: [
+            {
+              title: {
+                formatter: function (val) {
+                  return val + " (mins)";
+                },
+              },
+            },
+            {
+              title: {
+                formatter: function (val) {
+                  return val + " per session";
+                },
+              },
+            },
+            {
+              title: {
+                formatter: function (val) {
+                  return val;
+                },
+              },
+            },
+          ],
+        },
+        grid: {
+          borderColor: "#f1f1f1",
         },
       },
     };
@@ -73,14 +106,15 @@ export default class ChartHumidity extends Component {
       } else {
         date = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
       }
-      axios.get("/auth/google").then((result) => {
+      console.log(this.state.series[0]);
+      axios.get("/doan").then((result) => {
         this.setState({
           s: [date, ...this.state.s.slice(0, 10)],
           series: [
             {
               ...this.state.series[0],
               data: [
-                result.data.nhietdo[0],
+                result.data.doam[0],
                 ...this.state.series[0].data.slice(0, 10),
               ],
             },
@@ -107,7 +141,7 @@ export default class ChartHumidity extends Component {
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
-            type="line"
+            type="area"
             height={280}
             width={610}
           />
